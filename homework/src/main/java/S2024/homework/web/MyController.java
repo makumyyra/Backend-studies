@@ -19,8 +19,7 @@ public class MyController {
 		public String returnContactPage() {
 			return "This is the contact page";
 		}
-		
-		
+				
 		
 		@RequestMapping("hello")
 		@ResponseBody
