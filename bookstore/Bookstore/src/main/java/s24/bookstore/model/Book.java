@@ -1,14 +1,36 @@
-package Store24.Bookstore.model;
+package s24.bookstore.model;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+@Entity
 public class Book {
 	
+	@Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
 	private String title;
 	private String author;
 	private int publicationYear;
-	private int isbn;
+	private String isbn;
 	private double price;
+
+	public Book() {
+		super();
+	}
 	
-	public Book(String title, String author, int publicationYear, int isbn, double price) {
+	// public Book() {
+	// 	super();
+	// 	this.title = "";
+	// 	this.author = "";
+	// 	this.publicationYear = 0;
+	// 	this.isbn = "";
+	// 	this.price = 0.0;
+	// }
+	
+	public Book(String title, String author, int publicationYear, String isbn, double price) {
+		super();
 		this.title = title;
 		this.author = author;
 		this.publicationYear = publicationYear;
@@ -40,11 +62,11 @@ public class Book {
 		this.publicationYear = publicationYear;
 	}
 
-	public int getIsbn() {
+	public String getIsbn() {
 		return isbn;
 	}
 
-	public void setIsbn(int isbn) {
+	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
 

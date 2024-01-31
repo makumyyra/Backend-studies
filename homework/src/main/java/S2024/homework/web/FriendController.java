@@ -14,10 +14,12 @@ import S2024.homework.domain.Friend;
 @Controller
 public class FriendController {
 
+	List<Friend> kaverit = new LinkedList<>();
+
 	@GetMapping("hello")
 	public String showFriends(Model model) {
 	
-		List<Friend> kaverit = new LinkedList<>();
+		
 		kaverit.add(new Friend("Salla", "Antikainen"));
 		kaverit.add(new Friend("Karoliina", "Alakotila"));
 		kaverit.add(new Friend("Jutta", "Ruusunen"));
