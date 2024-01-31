@@ -16,7 +16,7 @@ public class MyController {
 		@RequestMapping("index")
 		@ResponseBody
 		public String returnMainPage() {
-			return "Thi@s is the main page";
+			return "This is the main page";
 		}
 
 		@RequestMapping("contact")
@@ -33,14 +33,14 @@ public class MyController {
 		
 		
 		
-		@RequestMapping("hello")
+		@RequestMapping("hello2")
 		public String showMessage(@RequestParam String name, @RequestParam int age, Model model) {
 			model.addAttribute("name", name);
 			model.addAttribute("age", age);
-			return "hello";
+			return "hello2";
 		}
 
-
+		
 
 
 
