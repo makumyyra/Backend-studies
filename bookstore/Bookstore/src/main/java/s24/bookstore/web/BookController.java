@@ -31,30 +31,24 @@ public class BookController {
 		model.addAttribute("books", repository.findAll());
         return "booklist";
 	}
-
-	@GetMapping("/addBook")
+//repository!
+	@GetMapping("/addbook")
 	public String addbookPage(Model model) {
 		model.addAttribute("book", new Book());
-		return "addbook";
+		return "addBook";
 	}
 	
-	 @PostMapping("/saveBook")
+	 @PostMapping("/savebook")
 	 public String savebook(Book book){
-		System.out.println("save book : " + book);
-
-
-		//TODO save to database
-		return "booklist";
-	 }
+		repository.save(book);
+		return "redirect:booklist";
+	}
 	
-	/*@GetMapping("/delete")
+	@GetMapping("/delete/{id}")
 	public String deleteBook(@PathVariable("id") Long id, Model model) {
-		System.out.println(De);
-	
-	
-		public SomeData getMethodName(@RequestParam String param) {
-		return new SomeData();
-	}*/
+		repository.deleteById(id);
+		return "redirect:booklist";
+	}
 	
 
 
