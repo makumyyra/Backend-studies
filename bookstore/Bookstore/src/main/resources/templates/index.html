@@ -11,7 +11,7 @@
 		    <th>Book info</th>
         </tr>  
     	<tr th:each = "book : ${books}">
-    		<td th:text="${book.title} + ' by author ' + ${book.author} + ' is available for ' + ${book.price}"></td>
+    		<td th:text="${book.title}"></td>
     	</tr>
      </table>    	
 </body>
