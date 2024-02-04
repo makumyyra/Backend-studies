@@ -5,8 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import s24.bookstore.model.Book;
 import s24.bookstore.model.BookRepository;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -29,6 +31,21 @@ public class BookController {
 		model.addAttribute("books", repository.findAll());
         return "booklist";
 	}
+
+	@GetMapping("/addBook")
+	public String addbookPage(Model model) {
+		model.addAttribute("book", new Book());
+		return "addbook";
+	}
+	
+	 @PostMapping("/saveBook")
+	 public String savebook(Book book){
+		System.out.println("save book : " + book);
+
+
+		//TODO save to database
+		return "booklist";
+	 }
 	
 	/*@GetMapping("/delete")
 	public String deleteBook(@PathVariable("id") Long id, Model model) {

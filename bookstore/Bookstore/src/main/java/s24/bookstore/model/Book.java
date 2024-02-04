@@ -24,9 +24,9 @@ public class Book {
 	// 	super();
 	// 	this.title = "";
 	// 	this.author = "";
-	// 	this.publicationYear = 0;
+	// 	this.publicationYear = null;
 	// 	this.isbn = "";
-	// 	this.price = 0.0;
+	// 	this.price = null;
 	// }
 	
 	public Book(String title, String author, int publicationYear, String isbn, double price) {
