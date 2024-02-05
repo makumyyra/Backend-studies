@@ -31,7 +31,7 @@ public class BookController {
 		model.addAttribute("books", repository.findAll());
         return "booklist";
 	}
-//repository!
+
 	@GetMapping("/addbook")
 	public String addbookPage(Model model) {
 		model.addAttribute("book", new Book());
@@ -43,23 +43,18 @@ public class BookController {
 		repository.save(book);
 		return "redirect:booklist";
 	}
+
+	@GetMapping("/editBook/{id}")
+	public String editBook(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("editBook", repository.findById(id));
+		return "editBook";
+	}
 	
 	@GetMapping("/delete/{id}")
 	public String deleteBook(@PathVariable("id") Long id, Model model) {
+		System.out.println("delete book " + id);
 		repository.deleteById(id);
-		return "redirect:booklist";
+		return "redirect:/booklist";
 	}
 	
-
-
-    // @RequestMapping(value= {"/", "/studentlist"})
-    // public String studentList(Model model) {	
-    //     model.addAttribute("students", repository.findAll());
-    //     return "studentlist";
-    // }
-	
-	
-
-
-
 }
