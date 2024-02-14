@@ -45,12 +45,13 @@ public class BookController {
 	@PostMapping("/savebook")
 	public String savebook(Book book) {
 		repository.save(book);
-		return "redirect:booklist";
+		return "redirect:../booklist";
 	}
 
 	@GetMapping("/editBook/{id}")
 	public String editBook(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("editBook", repository.findById(id));
+		model.addAttribute("book", repository.findById(id));
+		model.addAttribute("categories", cRepository.findAll());
 		return "editBook";
 	}
 
